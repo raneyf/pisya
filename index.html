@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+echo "# pisya" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/raneyf/pisya.git
+git push -u origin main
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Мой кликер</title>
+		<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div id="game">
+  <div id="upgrade">
+    <button id="upgrade1">Купить улучшение 1lvl(+1клик)</button>
+  </div>
+  <div id="clicker">
+	<button id="click-me">Click Me</button>
+  	<span id = "counter">0</span>
+  <script>
+    var count = 0;
+    var button = document.getElementById("click-me");
+    var counter = document.getElementById("counter");
+    button.addEventListener("click", function() {
+      count++;
+      counter.innerHTML = count;
+    });
+  </script>
+
+	
+</body>
+</html>
