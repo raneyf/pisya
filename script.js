@@ -1,7 +1,7 @@
-var h1Id=document.getElementyById('h11');
-var buttonId=document.getElementyById('button1');
-var counter=0;
-buttonId.addEventListener('click',fuction(){
-	counter++;
-	h1Id.textContent='Кликов сделано:'+counter;
-});	
+var count = 0;
+var button = document.getElementById("click-me");
+var counter = document.getElementById("counter");
+button.addEventListener("click", function() {
+  count++;
+  counter.innerHTML = count;
+});
