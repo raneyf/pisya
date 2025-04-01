@@ -1,19 +1,7 @@
-var massiveText=[
-  'Здравствуйте, гость'
-  'Привет, гость'
-  'Добрый день, гость'
-];
-var randomNum=Math.floor(Math.random()*3)
-alert(massiveText[randomNum]);
-
-var count = 0;
-var upgrade0=1
-var button = document.getElementById("click-me");
-var counter = document.getElementById("counter");
-upgrade1Button.addEventListener('click', function()P{})
-  upgrade0=upgrade0+1;
-  
-button.addEventListener("click", function(){
-  count++;
-  counter.innerHTML = count;
+var h1Id=document.getElementyById('h1');
+var buttonId=document.getElementyById('button');
+var counter=0;
+buttonId.addEventListerner('click', function(){
+  counter++;
+  h1Id.textContent='Кликов сделано:'+counter;
 });
