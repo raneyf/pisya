@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Мой кликер</title>
-<script src="script.js">
-</script>
-<link rel="stylesheet" href="style.css">
- 
- </head>
- <body>
- <h1 id="h1">Кликов сделано:0</h1>
- <button id="click-me">Click Me</button>
- 
- </body>
- </html>
+	<meta charset="UTF-8">
+	<title>Мой кликер</title>
+		<link rel="stylesheet" href="style.css">
+</head>
+<body>
+		<button id="click-me">Click</button>
+		<span id="counter">0</span>
+		<script>
+			var count = 0;
+			var button = document.getElementyById("click-me");
+			var counter = document.getElementById("counter");
+			button.addEventListener('click', function(){
+				count++;
+				counter.innerHTML = count;
+});
+		</script>
+</body>
+</html>
