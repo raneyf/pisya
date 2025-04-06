@@ -1,3 +1,13 @@
 body{
 	text-align:center;
 }
+#upgrade{
+	height:200px;
+	width:200px;
+	background-color:green;
+	float:right;
+}
+#game{
+	width:400px;
+	height:200px;
+}
