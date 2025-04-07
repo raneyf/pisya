@@ -8,14 +8,15 @@ body{
 	width:200px;
 	background-color:green;
 	float:right;
-#clicker{
+}
+#cllicker{
 	height:200px;
 	width:200px;
 	background-color:green;
 	float:left;
 }
 #game{
-	width:405px;
+	width:400px;
 	height:200px;
 	margin:0 auto;
 }
