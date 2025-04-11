@@ -4,19 +4,32 @@ body{
 	padding:0;
 }
 #upgrade{
-	height:200px;
-	width:200px;
-	background-color:green;
+	height:270px;
+	width:290px;
+	background-color:grey;
 	float:right;
 }
+
 #clicker{
-	height:200px;
-	width:200px;
-	background-color:green;
+	height:270px;
+	width:290px;
+	background-color:grey;
 	float:left;
 }
 #game{
-	width:405px;
+	width:600px;
 	height:200px;
 	margin:0 auto;
+}
+.qwe {
+	color: white;
+	background-color: blue;
+	width: 200px;
+	height:100px;
+	border: 3px solid;
+	border-radius: 15px;
+
+}
+.lol{
+	background: url(https://epicureandculture.com/wp-content/uploads/2016/08/wPCyys8TPCHY3GXm2N2D_ssp_inthewoods_1.jpg);
 }
