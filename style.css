@@ -9,14 +9,14 @@ body{
 	background-color:green;
 	float:right;
 }
-#cllicker{
+#clicker{
 	height:200px;
 	width:200px;
 	background-color:green;
 	float:left;
 }
 #game{
-	width:400px;
+	width:405px;
 	height:200px;
 	margin:0 auto;
 }
