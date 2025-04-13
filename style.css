@@ -9,7 +9,6 @@ body{
 	background-color:grey;
 	float:right;
 }
-
 #clicker{
 	height:270px;
 	width:290px;
@@ -28,7 +27,6 @@ body{
 	height:100px;
 	border: 3px solid;
 	border-radius: 15px;
-
 }
 .lol{
 	background: url(https://avatars.mds.yandex.net/i?id=7a772733df57c750f72f1e7f1a902a08_l-8918938-images-thumbs&n=13);
