@@ -3,31 +3,23 @@ body{
 	margin:0;
 	padding:0;
 }
-
 #upgrade{
-	height:270px;
-	width:290px;
-	background-color:grey;
-	float:right;
+	grid-area:admin;
+	border-right :5px solid white;
 }
-
 #clicker{
-	height:270px;
-	width:290px;
-	background-color:grey;
-	float:left;
+	grid-area:main-site;
 }
-
 #game{
-	width:600px;
-	height:200px;
+	grid-template-areas: 
+	"admin main-site";
+	grid-template-columns: 1fr 11fr;
+	display:grid;
 	margin:0 auto;
 }
-
 .hidden{
 	display:none;
 }
-
 #grey{
 	background-color:black;
 	width:100%;
@@ -36,23 +28,20 @@ body{
 	z-index:99998;
 	position: absolute;
 }
-
 #popUp{
-	left:37%;
+	left:30%;
 	top:20%;
-	width:400px;
-	height:300px;
+	width:200px;
+	height:100px;
 	color:red;
 	position: absolute;
 	z-index:99999;
 }
-.qwe{
-	color: white;
-	background-color: blue;
-	width: 200px;
-	height:100px;
-	border: 3px solid;
-	border-radius: 15px;
+.green{
+	background-color:green;
+}
+.upgradesTextColor{
+	color:white;
 }
 .lol{
 	background: url(https://avatars.mds.yandex.net/i?id=7a772733df57c750f72f1e7f1a902a08_l-8918938-images-thumbs&n=13);
