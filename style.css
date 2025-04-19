@@ -10,10 +10,6 @@ body{
 #clicker{
 	grid-area:main-site;
 }
-.tree{
-		border: 3px solid;
- 	border-radius: 15px;
-}
 #game{
 	grid-template-areas: 
 	"admin main-site";
