@@ -42,68 +42,67 @@ statistick = document.getElementById('stat');
 allStat = document.getElementById('allStat');
 backStatistick = document.getElementById('backStat');
 bonusSwitch = false;
-function allTimeClick() {//статистика
+function allTimeClick() {
 	allClick = allClick + upgrade0;
 	statClickPerAllTime.textContent = 'Кликов за всё время сделано:' + allClick;
 }
-//Главная динамика кликера
+
 submitFormPicker.addEventListener('click', function (event) {
 	event.preventDefault();
-	for (var z = 0; z < massiveGreen.length; z++) {                //Главная динамика выбора цвета бэкграунда
+	for (var z = 0; z < massiveGreen.length; z++) {                
 		massiveGreen[z].style.backgroundColor = picker.value;
 	}
 });
-//sessionStorage
+
 if (sessionStorage.getItem('allClickVar') != null) {
-	var allClick = sessionStorage.getItem('allClickVar');//Вывод из sessionStorеджа инфы о статистике всех кликов
+	var allClick = sessionStorage.getItem('allClickVar');
 	statClickPerAllTime.textContent = 'Кликов за всё время сделано:' + allClick;
 }
 else {
-	allClick = 0;//Еcли инфы про апгрейды нет
+	allClick = 0;
 	statClickPerAllTime.textContent = 'Кликов за всё время сделано:' + allClick;
 }
 if (sessionStorage.getItem('textClickPerMinute') != null) {
 	var txtContentClickPerMinute = sessionStorage.getItem('textClickPerMinute');
-	textContentUpgradePerMinute.innerHTML = "Апгрейдов на клики в минуту:";//Вывод из sessionStorеджа инфы об
-	textContentUpgradePerMinute.innerHTML += txtContentClickPerMinute;     //апгрейдах на клики в минуту
+	textContentUpgradePerMinute.innerHTML = "Апгрейдов на клики в минуту:";
+	textContentUpgradePerMinute.innerHTML += txtContentClickPerMinute;     
 }
 else {
-	var txtContentClickPerMinute = "";//Еcли инфы про апгрейды нет
+	var txtContentClickPerMinute = "";
 }
 if (sessionStorage.getItem('textClick') != null) {
-	var txtContentClick = sessionStorage.getItem('textClick');   //Вывод из sessionStorеджа инфы об
-	textContentUpgradePerClick.innerHTML = "Апгрейдов на клики:";//апгрейдах на клики
+	var txtContentClick = sessionStorage.getItem('textClick');
+	textContentUpgradePerClick.innerHTML = "Апгрейдов на клики:";
 	textContentUpgradePerClick.innerHTML += txtContentClick;
 }
 else {
-	var txtContentClick = "";//Елси инфы про апгрейды нет
+	var txtContentClick = "";
 }
 
 if (sessionStorage.getItem('count')) {
-	var counter = parseInt(sessionStorage.getItem('count'));//Вывод из sessionStorеджа инфы об
-	h1Id.textContent = 'Кликов сделано:' + counter;           //общих кликах
+	var counter = parseInt(sessionStorage.getItem('count'))
+	h1Id.textContent = 'Кликов сделано:' + counter;           
 }
 else {
-	var counter = 0;//Елси инфы нет
+	var counter = 0;
 }
 if (sessionStorage.getItem('upgrade')) {
 	var upgrade0 = parseInt(sessionStorage.getItem('upgrade'));
-	h1Id.textContent = 'Кликов сделано:' + counter;     //Вывод из sessionStorеджа инфы об
-	click.textContent = 'Кликов за нажатие:' + upgrade0;//кликах в минуту
+	h1Id.textContent = 'Кликов сделано:' + counter;     
+	click.textContent = 'Кликов за нажатие:' + upgrade0;
 }
 else {
-	var upgrade0 = 1;//Елси инфы нет
+	var upgrade0 = 1;
 }
 if (sessionStorage.getItem('upgradePerMinute')) {
-	var upgrade1 = parseInt(sessionStorage.getItem('upgradePerMinute'));//Вывод из sessionStorеджа инфы об
-	clickPerMinuteVarriable.textContent = 'Кликов в минуту:' + upgrade1;  //кликах в минуту
+	var upgrade1 = parseInt(sessionStorage.getItem('upgradePerMinute'));
+	clickPerMinuteVarriable.textContent = 'Кликов в минуту:' + upgrade1;  
 }
 else {
-	var upgrade1 = 1;//Елси инфы нет
+	var upgrade1 = 1;
 }
 
-//функции
-function clickPerTime() {                                       //Функция кликов в минуту 
+function clickPerTime() {       
 	counter = counter + upgrade1;
 	allClick = allClick + upgrade1;
 	statClickPerAllTime.textContent = 'Кликов за всё время сделано:' + allClick;
@@ -113,23 +112,23 @@ function clickPerTime() {                                       //Функция
 	sessionStorage.setItem('upgradePerMinute', upgrade1);
 	sessionStorage.setItem('allClickVar', allClick);
 }
-setInterval(clickPerTime, 60000);                               //Сам интервал
+setInterval(clickPerTime, 60000);                              
 
 
 popUpClose.addEventListener('click', function () {
 	grey.classList.add('hidden');
-	popUp.classList.add('hidden');//Попап окно
+	popUp.classList.add('hidden');
 });
 document.addEventListener('keydown', function (event) {
 	if (event.keyCode = 13) {
-		buttonId.blur();//условие,чтобы нельзя было зажать enter
+		buttonId.blur();
 	}
 });
 font1.addEventListener('click', function () {
-	body.style.fontFamily = '"Times New Roman"';//Привязка события click к кнопки смены шрифта #1
+	body.style.fontFamily = '"Times New Roman"';
 });
 font2.addEventListener('click', function () {
-	body.style.fontFamily = '"Courier"';//Привязка события click к кнопки смены шрифта #2
+	body.style.fontFamily = '"Courier"';
 });
 
 
@@ -137,13 +136,12 @@ bonus.addEventListener('click', function () {
 	if (1000 > counter) {
 		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 1000 кликов!';//попап окно если меньше кликов
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 1000 кликов!';
 	}
 	else {
 		counter = counter - 1000;
 		h1Id.textContent = 'Кликов сделано:' + counter;
-		alert("Поздравляем!Вы купили бонуску!");//Привязка события click к кнопки покупки 
-		//бонуски(попап окно+свич для кликов)
+		alert("Поздравляем!Вы купили бонуску!");
 		bonus.parentNode.removeChild(bonus);
 		bonusSwitch = true;
 	}
@@ -153,7 +151,7 @@ buttonId.addEventListener('click', function () {
 	counter = counter + upgrade0;
 	allTimeClick();
 	if (bonusSwitch) {
-		counter = counter + upgrade0;//свич на бонуску
+		counter = counter + upgrade0;
 	}
 	h1Id.textContent = 'Кликов сделано:' + counter;
 	sessionStorage.setItem('count', counter);
@@ -164,17 +162,14 @@ buttonId.addEventListener('click', function () {
 
 
 
-
-//Окно апгрейдов
-
 upgradeButtonPerMinute1.addEventListener('click', function () {
 	if (10 > counter) {
 		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 10 кликов!';//попап окно если меньше кликов
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 10 кликов!';
 	}
 	else {
-		counter = counter - 10;//если есть клики,то покупка апгрейда на 1 клик в минуту
+		counter = counter - 10;
 		upgrade1 = upgrade1 + 1;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		clickPerMinuteVarriable.textContent = 'Кликов в минуту:' + upgrade1;
@@ -190,12 +185,12 @@ upgradeButtonPerMinute1.addEventListener('click', function () {
 });
 upgradeButtonPerMinute2.addEventListener('click', function () {
 	if (20 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
 		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 20 кликов!';
 	}
 	else {
-		counter = counter - 20;//если есть клики,то покупка апгрейда на 2 клика в минуту
+		counter = counter - 20;
 		upgrade1 = upgrade1 + 2;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		clickPerMinuteVarriable.textContent = 'Кликов в минуту:' + upgrade1;
@@ -212,12 +207,12 @@ upgradeButtonPerMinute2.addEventListener('click', function () {
 });
 upgradeButtonPerMinute3.addEventListener('click', function () {
 	if (30 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
 		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 30 кликов!';
 	}
 	else {
-		counter = counter - 30;//если есть клики,то покупка апгрейда на 3 клика в минуту
+		counter = counter - 30;
 		upgrade1 = upgrade1 + 3;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		clickPerMinuteVarriable.textContent = 'Кликов в минуту:' + upgrade1;
@@ -234,11 +229,11 @@ upgradeButtonPerMinute3.addEventListener('click', function () {
 upgradeButtonPerMinute4.addEventListener('click', function () {
 	if (40 > counter) {
 		popUp.classList.remove('hidden');
-		grey.classList.remove('hidden');//попап окно если меньше кликов
+		grey.classList.remove('hidden');
 		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 40 кликов!';
 	}
 	else {
-		counter = counter - 40;//если есть клики,то покупка апгрейда на 4 клика в минуту
+		counter = counter - 40;
 		upgrade1 = upgrade1 + 4;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		clickPerMinuteVarriable.textContent = 'Кликов в минуту:' + upgrade1;
@@ -254,12 +249,12 @@ upgradeButtonPerMinute4.addEventListener('click', function () {
 });
 upgradeButtonPerMinute5.addEventListener('click', function () {
 	if (50 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
 		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 50 кликов!';
 	}
 	else {
-		counter = counter - 50;//если есть клики,то покупка апгрейда на 5 кликов в минуту
+		counter = counter - 50;
 		upgrade1 = upgrade1 + 5;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		clickPerMinuteVarriable.textContent = 'Кликов в минут:' + upgrade1;
@@ -275,14 +270,14 @@ upgradeButtonPerMinute5.addEventListener('click', function () {
 });
 
 upgrade1Button.addEventListener('click', function () {
-	if (10 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+	if (100 > counter) {
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 10 кликов!';
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 100 кликов!';
 	}
 	else {
-		counter = counter - 10;
-		upgrade0 = upgrade0 + 1;//если есть клики,то покупка апгрейда на 1 клик за клик
+		counter = counter - 100;
+		upgrade0 = upgrade0 + 1;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		sessionStorage.setItem('count', counter);
 		sessionStorage.setItem('upgrade', upgrade0);
@@ -297,14 +292,14 @@ upgrade1Button.addEventListener('click', function () {
 
 });
 upgrade2Button.addEventListener('click', function () {
-	if (20 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+	if (300 > counter) {
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 20 кликов!';
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 300 кликов!';
 	}
 	else {
-		counter = counter - 20;
-		upgrade0 = upgrade0 + 2;//если есть клики,то покупка апгрейда на 2 клика за клик
+		counter = counter - 300;
+		upgrade0 = upgrade0 + 2;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		sessionStorage.setItem('count', counter);
 		sessionStorage.setItem('upgrade', upgrade0);
@@ -318,13 +313,13 @@ upgrade2Button.addEventListener('click', function () {
 
 });
 upgrade3Button.addEventListener('click', function () {
-	if (30 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+	if (500 > counter) {
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 30 кликов!';
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 500 кликов!';
 	}
 	else {
-		counter = counter - 30;//если есть клики,то покупка апгрейда на 3 клика за клик
+		counter = counter - 500;
 		upgrade0 = upgrade0 + 3;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		sessionStorage.setItem('count', counter);
@@ -339,13 +334,13 @@ upgrade3Button.addEventListener('click', function () {
 
 });
 upgrade4Button.addEventListener('click', function () {
-	if (40 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+	if (700 > counter) {
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 40 кликов!';
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 700 кликов!';
 	}
 	else {
-		counter = counter - 40;//если есть клики,то покупка апгрейда на 4 клика за клик
+		counter = counter - 700;
 		upgrade0 = upgrade0 + 4;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		sessionStorage.setItem('count', counter);
@@ -360,13 +355,13 @@ upgrade4Button.addEventListener('click', function () {
 
 });
 upgrade5Button.addEventListener('click', function () {
-	if (50 > counter) {
-		popUp.classList.remove('hidden');//попап окно если меньше кликов
+	if (1000 > counter) {
+		popUp.classList.remove('hidden');
 		grey.classList.remove('hidden');
-		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 50 кликов!';
+		popUpText.textContent = 'Ошибка!Вы должны набрать не менее 1000 кликов!';
 	}
 	else {
-		counter = counter - 50;//если есть клики,то покупка апгрейда на 5 кликов за клик
+		counter = counter - 1000;
 		upgrade0 = upgrade0 + 5;
 		h1Id.textContent = 'Кликов сделано:' + counter;
 		sessionStorage.setItem('count', counter);
@@ -382,9 +377,8 @@ upgrade5Button.addEventListener('click', function () {
 });
 
 
-//Кнопки привязки hidden
 
-settings.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным с настройками
+settings.addEventListener('click', function () {
 	shop.classList.add('hidden');
 	openAllUpgrades.classList.add('hidden');
 	backSettings.classList.remove('hidden');
@@ -393,7 +387,7 @@ settings.addEventListener('click', function () {//Убирание и добав
 	font1.classList.remove('hidden');
 	font2.classList.remove('hidden');
 });
-backSettings.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным с кнопкой назад (настройки)
+backSettings.addEventListener('click', function () {
 	shop.classList.remove('hidden');
 	backSettings.classList.add('hidden');
 	openAllUpgrades.classList.remove('hidden');
@@ -402,7 +396,7 @@ backSettings.addEventListener('click', function () {//Убирание и доб
 	font1.classList.add('hidden');
 	font2.classList.add('hidden');
 });
-clickUpgradeShop.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным с магазином апгрейдов за клики
+clickUpgradeShop.addEventListener('click', function () {
 	upgrade1Button.classList.remove('hidden');
 	upgrade2Button.classList.remove('hidden');
 	upgrade3Button.classList.remove('hidden');
@@ -414,7 +408,7 @@ clickUpgradeShop.addEventListener('click', function () {//Убирание и д
 	clickPerMinuteUpgradeShop.classList.add('hidden');
 	bonus.classList.add('hidden');
 });
-shop.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным с всем магазином
+shop.addEventListener('click', function () {
 	shop.classList.add('hidden');
 	openAllUpgrades.classList.add('hidden');
 	back.classList.remove('hidden');
@@ -425,7 +419,7 @@ shop.addEventListener('click', function () {//Убирание и добавле
 
 
 });
-backShop.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным с 2 магазинами кликов и кликов в минуту
+backShop.addEventListener('click', function () {
 	back.classList.remove('hidden');
 	backShop.classList.add('hidden');
 	upgrade1Button.classList.add('hidden');
@@ -443,7 +437,7 @@ backShop.addEventListener('click', function () {//Убирание и добав
 	clickPerMinuteUpgradeShop.classList.remove('hidden');
 	bonus.classList.remove('hidden');
 });
-back.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным со всем магазином(кнопка назад)
+back.addEventListener('click', function () {
 	shop.classList.remove('hidden');
 	back.classList.add('hidden');
 	upgrade1Button.classList.add('hidden');
@@ -457,7 +451,7 @@ back.addEventListener('click', function () {//Убирание и добавле
 	clickPerMinuteUpgradeShop.classList.add('hidden');
 	bonus.classList.add('hidden');
 });
-clickPerMinuteUpgradeShop.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным с магазином кликов в минуту
+clickPerMinuteUpgradeShop.addEventListener('click', function () {
 	back.classList.add('hidden');
 	clickUpgradeShop.classList.add('hidden');
 	backShop.classList.remove('hidden');
@@ -469,21 +463,21 @@ clickPerMinuteUpgradeShop.addEventListener('click', function () {//Убиран�
 	clickPerMinuteUpgradeShop.classList.add('hidden');
 	bonus.classList.add('hidden');
 });
-openAllUpgrades.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным со всеми апгрейдами меню
+openAllUpgrades.addEventListener('click', function () {
 	openAllUpgrades.classList.add('hidden');
 	allUpgrades.classList.remove('hidden');
 	settings.classList.add('hidden');
 	shop.classList.add('hidden');
 	backAllUpgrades.classList.remove('hidden');
 });
-backAllUpgrades.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным со всеми апгрейдами(назад)
+backAllUpgrades.addEventListener('click', function () {
 	openAllUpgrades.classList.remove('hidden');
 	allUpgrades.classList.add('hidden');
 	settings.classList.remove('hidden');
 	shop.classList.remove('hidden');
 	backAllUpgrades.classList.add('hidden');
 });
-statistick.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным со статистикой
+statistick.addEventListener('click', function () {
 	shop.classList.add('hidden');
 	openAllUpgrades.classList.add('hidden');
 	statistick.classList.add('hidden');
@@ -491,7 +485,7 @@ statistick.addEventListener('click', function () {//Убирание и доба
 	backStatistick.classList.remove('hidden');
 	allStat.classList.remove('hidden');
 });
-backStatistick.addEventListener('click', function () {//Убирание и добавление классов hidden к элементам,связанным со статистикой(назад)
+backStatistick.addEventListener('click', function () {
 	shop.classList.remove('hidden');
 	openAllUpgrades.classList.remove('hidden');
 	statistick.classList.remove('hidden');
