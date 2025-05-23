@@ -23,7 +23,7 @@ body{
 	"admin main-site";
 	grid-template-columns: 1fr 11fr;
 	display:grid;
-	margin:0 auto;
+	margin:1 auto;
 	width: 800px;
     height:2000px;
 }
